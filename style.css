@@ -1,0 +1,705 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f0f1a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* 🌌 Animated Background */
+.background-animation {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, #ff4e91, transparent),
+                radial-gradient(circle at 70% 70%, #ff2e63, transparent),
+                radial-gradient(circle at 50% 80%, #ff758c, transparent);
+    animation: moveBackground 15s infinite alternate ease-in-out;
+    z-index: -1;
+}
+
+@keyframes moveBackground {
+    0% { transform: translate(-10%, -10%); }
+    100% { transform: translate(-20%, -20%); }
+}
+
+/* 🎵 Music Button */
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.25);
+}
+
+/* 💌 Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#typewriter {
+    font-size: 3rem;
+    font-weight: 700;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-weight: 300;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.primary-btn {
+    margin-top: 40px;
+    padding: 14px 35px;
+    background: linear-gradient(45deg, #ff4e91, #ff2e63);
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 46, 99, 0.6);
+}
+
+/* 📦 Sections */
+.section {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+/* 📸 Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    overflow: hidden;
+    border-radius: 20px;
+    transition: 0.4s ease;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    transition: 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card::after {
+    content: "❤️";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+/* ⏳ Countdown */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.time-box {
+    background: rgba(255,255,255,0.1);
+    padding: 25px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    min-width: 120px;
+    transition: 0.3s ease;
+}
+
+.time-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 46, 99, 0.4);
+}
+
+.time-box span {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.time-box p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 💍 Proposal Buttons */
+.button-group {
+    margin-top: 40px;
+}
+
+.yes-btn, .no-btn {
+    padding: 14px 35px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 1rem;
+    margin: 15px;
+}
+
+.yes-btn {
+    background: linear-gradient(45deg, #ff2e63, #ff4e91);
+    color: white;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 46, 99, 0.7);
+}
+
+.no-btn {
+    background: white;
+    color: #ff2e63;
+    position: relative;
+}
+
+.no-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+    #typewriter {
+        font-size: 1.8rem;
+    }
+
+    .time-box {
+        min-width: 90px;
+        padding: 15px;
+    }
+
+    .section {
+        padding: 70px 5%;
+    }
+}
+/* ========================= */
+/* 📸 9:16 PORTRAIT CAROUSEL */
+/* ========================= */
+
+.carousel {
+    position: relative;
+    max-width: 400px;   /* Perfect width for portrait */
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(255, 46, 99, 0.4);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    aspect-ratio: 9 / 16;   /* 👈 THIS FIXES THE RATIO */
+    object-fit: cover;      /* Keeps image clean */
+    border-radius: 25px;
+}
+
+/* Navigation buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    border: none;
+    font-size: 2rem;
+    padding: 8px 14px;
+    cursor: pointer;
+    color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 46, 99, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Dots */
+.dots {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.dots span {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin: 5px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dots span.active {
+    background-color: #ff2e63;
+}
+/* =============================== */
+/* 💖 LOVE OVERLAY */
+/* =============================== */
+
+.love-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.6s ease;
+    z-index: 9999;
+}
+
+.love-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.love-content {
+    text-align: center;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.love-photo {
+    width: 300px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(255, 46, 99, 0.6);
+    margin-bottom: 25px;
+}
+
+.love-text {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff4e91;
+}
+
+.love-subtext {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff4e91;
+    transform: scale(1.2);
+}
+
+.love-content {
+    position: relative;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* =============================== */
+/* 💌 FULL SCREEN LOVE LETTER */
+/* =============================== */
+
+.love-letter-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+.love-letter-box {
+    max-width: 700px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(255, 46, 99, 0.3);
+    text-align: center;
+}
+
+.love-letter-box h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #ff4e91;
+}
+
+#loveLetterScreen {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    white-space: pre-line;
+    border-right: 2px solid #ff4e91;
+    animation: blinkCursor 1s infinite;
+    min-height: 200px;
+}
+
+@keyframes blinkCursor {
+    0% { border-color: transparent; }
+    50% { border-color: #ff4e91; }
+    100% { border-color: transparent; }
+}
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 46, 99, 0.5);
+}
+
+.controls button {
+    background: #ff2e63;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.controls button:hover {
+    transform: scale(1.1);
+}
+
+#songTitle {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+
+/* =============================== */
+/* 🔐 OTP LOCK SCREEN */
+/* =============================== */
+
+.otp-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.otp-box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(255, 46, 99, 0.4);
+    width: 300px;
+}
+
+.otp-box h2 {
+    margin-bottom: 15px;
+}
+
+.otp-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 15px 0;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.otp-box button {
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    background: #ff2e63;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.otp-box button:hover {
+    transform: scale(1.1);
+}
+/* =============================== */
+/* 💘 CINEMATIC HERO BACKGROUND */
+/* =============================== */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Background Image */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.6),
+            rgba(0,0,0,0.7)
+        ),
+        url("images/img17.jpeg");
+        
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    filter: brightness(0.8);
+    z-index: -1;
+}
+
+/* Content on top */
+.hero-content {
+    z-index: 2;
+    color: white;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+
+/* ===================================== */
+/* 🌍 GLOBAL RESPONSIVE SYSTEM */
+/* ===================================== */
+
+/* Make images always scale properly */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Sections spacing adjustment */
+.section {
+    padding: 80px 8%;
+}
+
+/* Countdown responsive layout */
+.countdown-container {
+    flex-wrap: wrap;
+}
+
+/* Love letter box responsive */
+.love-letter-box {
+    width: 100%;
+}
+
+/* Carousel responsive */
+.carousel {
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Music player responsive */
+.music-player {
+    width: 90%;
+    max-width: 400px;
+}
+
+/* ===================================== */
+/* 📱 MOBILE (Below 768px) */
+/* ===================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .hero {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.7rem;
+        line-height: 1.4;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .hero-photo img {
+        width: 140px;
+    }
+
+    .primary-btn {
+        padding: 10px 22px;
+        font-size: 0.9rem;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .love-letter-box {
+        padding: 25px;
+    }
+
+    #loveLetterScreen {
+        font-size: 0.95rem;
+    }
+
+    .carousel {
+        max-width: 300px;
+    }
+
+    .slide {
+        aspect-ratio: 9 / 16;
+    }
+
+    .countdown-container {
+        gap: 15px;
+    }
+
+    .time-box {
+        min-width: 80px;
+        padding: 15px;
+    }
+
+    .time-box span {
+        font-size: 1.5rem;
+    }
+
+    .music-player {
+        bottom: 10px;
+        padding: 10px 15px;
+    }
+
+    .controls button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+}
+
+/* ===================================== */
+/* 📱 SMALL PHONES (Below 480px) */
+/* ===================================== */
+
+@media (max-width: 480px) {
+
+    .hero-content h1 {
+        font-size: 1.4rem;
+    }
+
+    .hero-photo img {
+        width: 120px;
+    }
+
+    .primary-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .carousel {
+        max-width: 250px;
+    }
+
+    .love-letter-box {
+        padding: 20px;
+    }
+
+    #loveLetterScreen {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+}
+

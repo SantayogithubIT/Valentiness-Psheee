@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Access 💘</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="otp-body">
+
+<div class="otp-overlay">
+    <div class="otp-box">
+        <h2>🔐 Enter Our Secret Code</h2>
+        <p>Hint: I Love You ❤️</p>
+
+        <input type="password" id="otpInput" placeholder="Enter OTP">
+
+        <button onclick="checkOTP()">Unlock 💖</button>
+    </div>
+</div>
+
+<script>
+function checkOTP() {
+    const userInput = document.getElementById("otpInput").value;
+
+    if (userInput === "143") {
+        window.location.href = "index.html";
+    } else {
+        alert("Wrong OTP 😏 Try Again!");
+        document.getElementById("otpInput").value = "";
+    }
+}
+
+document.getElementById("otpInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        checkOTP();
+    }
+});
+</script>
+
+</body>
+</html>

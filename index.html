@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Only For You ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<!-- 💖 Proposal Success Overlay -->
+<div id="loveOverlay" class="love-overlay">
+    <div class="love-content">
+         <button class="close-btn" onclick="closeOverlay()">✖</button>
+        <img src="images/special.jpeg" class="love-photo">
+        <h2 class="love-text">
+            I Loveee Youu Foreverrrr!❤️
+        </h2>
+        <p class="love-subtext">
+            Accept korar jonno hammmiiiiiiii🥺
+        </p>
+    </div>
+</div>
+
+<body>
+
+<!-- 🎵 Music Player -->
+<div class="music-player">
+    <audio id="bgMusic"></audio>
+
+    <div class="controls">
+        <button onclick="prevSong()">⏮</button>
+        <button onclick="toggleMusic()" id="playBtn">▶</button>
+        <button onclick="nextSong()">⏭</button>
+    </div>
+
+    <p id="songTitle">Now Playing: Our Song ❤️</p>
+</div>
+
+
+<!-- 💌 HERO SECTION -->
+<header class="hero">
+
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+        <h1 id="typewriter"></h1>
+
+        <p class="subtitle">
+            Distance means nothing when someone means everything 🥺
+        </p>
+
+        <button class="primary-btn" onclick="scrollToSection()">
+            Explore Our Love ↓
+        </button>
+    </div>
+
+</header>
+
+
+<section class="section">
+    <h2>📸 Our Beautiful Memories</h2>
+
+    <div class="carousel">
+        <div class="carousel-track">
+            <img src="images/img1.jpeg" class="slide active">
+            <img src="images/img2.jpeg" class="slide">
+            <img src="images/img3.jpeg" class="slide">
+            <img src="images/img4.jpeg" class="slide">
+            <img src="images/img45.jpeg" class="slide">
+            <img src="images/img5.jpeg" class="slide">
+            <img src="images/img6.jpeg" class="slide">
+            <img src="images/img7.jpeg" class="slide">
+            <img src="images/img8.jpeg" class="slide">
+            <img src="images/img9.jpeg" class="slide">
+            <img src="images/img10.jpeg" class="slide">
+            <img src="images/img11.jpeg" class="slide">
+            <img src="images/img12.jpeg" class="slide">
+            <img src="images/img13.jpeg" class="slide">
+            <img src="images/img14.jpeg" class="slide">
+            <img src="images/img15.jpeg" class="slide">
+            <img src="images/img16.jpeg" class="slide">
+            <img src="images/img19.jpeg" class="slide">
+            <img src="images/img18.jpeg" class="slide">
+
+        </div>
+
+        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn next">&#10095;</button>
+
+        <div class="dots"></div>
+    </div>
+</section>
+
+<!-- ⏳ COUNTDOWN -->
+<section class="section">
+    <h2>⏳ Countdown To Our Next Meet</h2>
+
+    <div class="countdown-container">
+        <div class="time-box">
+            <span id="days">0</span>
+            <p>Days</p>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">0</span>
+            <p>Hours</p>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">0</span>
+            <p>Minutes</p>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">0</span>
+            <p>Seconds</p>
+        </div>
+    </div>
+</section>
+<!-- 💌 FULL SCREEN LOVE LETTER -->
+<section class="love-letter-section">
+    <div class="love-letter-box">
+        <h2>💌 A Letter For You</h2>
+        <p id="loveLetterScreen"></p>
+    </div>
+</section>
+
+
+<!-- 💍 PROPOSAL SECTION -->
+<section class="section">
+    <h2>Will You Be My Forever Valentine? 💍</h2>
+
+    <div class="button-group">
+        <button class="yes-btn" onclick="yesClicked()">YES 😍</button>
+        <button class="no-btn" id="noBtn">No 🙄</button>
+    </div>
+</section>
+
+<!-- Script -->
+<script src="script.js"></script>
+
+</body>
+<!-- 🔐 OTP OVERLAY -->
+<div id="otpOverlay" class="otp-overlay">
+    <div class="otp-box">
+        <h2>🔐 OTP Deben Piliz</h2>
+        <p>Hint: I Love You ❤️</p>
+
+        <input type="password" id="otpInput" placeholder="Enter OTP">
+
+        <button onclick="checkOTP()">Unlock 💘</button>
+    </div>
+</div>
+
+</html>
